@@ -20,87 +20,53 @@
             }
     
             .btn-primary {
-                background: linear-gradient(45deg, #FF6B6B, #FFA07A);
+                background-color: #6FB3B8;
                 color: #fff;
             }
     
             .btn-primary:hover {
-                background: linear-gradient(45deg, #FF6B6B, #FFA07A);
+                background-color: #3F75C3;
             }
         </style>
     </head>
-    <body>
-        <section class="vh-10" style="background-image: url('login.png');">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-md-8 col-lg-6 col-xl-4">
-                        <div class="card shadow">
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <h2>LOGIN</h2>
-                                </div>
-                                <form action="">
-      
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Username</label>
-                                        <input type="text" id="username" class="form-control" name="username"
-                                               required autocomplete="username"/>
-                                    </div>
-    
-                                    <div class="mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" id="password" class="form-control" name="password"
-                                               required/>
-                                    </div>
-    
-                                    <div class="text-danger errors">
-                                        <p class="err-message"></p>
-                                    </div>
-    
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 text-black">
+
+        <div class="px-5 ms-xl-4">
+          <img src="logo_posyandu.png" style="width: 300px; height:150px; margin-bottom: -80px; margin-left:-50px">
+        </div>
+
+        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+          <form style="width: 23rem;">
+
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">LOGIN HERE! </h3>
+
+            <div class="form-outline mb-4">
+              <input type="email" id="form2Example18" class="form-control form-control-lg" />
+              <label class="form-label" for="form2Example18">NIP</label>
             </div>
-        </section>
-        <script type="module">
-            $('form').submit(async function (e) {
-                e.preventDefault();
-                let username = $('#username').val();
-                let password = $('#password').val();
-                var _tok = "{{csrf_token()}}";
-    
-                await axios({
-                    method: 'post',
-                    url: "{{url('/login')}}",
-                    data: {
-                        username : username,
-                        password : password,
-                        _token : _tok
-                    }
-                }).then(async () => {
-                    await swal.fire({
-                        title: 'Login berhasil!',
-                        text: 'Redirecting to dashboard...',
-                        icon: 'success',
-                        timer: 1000,
-                        showConfirmButton: false
-                    })
-                    window.location = '/dashboard'
-                    console.log('success')
-                }).catch(({response}) => {
-                    if (!$('.err-message').text()) {
-                        $('.err-message').append(document.createTextNode(response.data.errors.message))
-                    }
-                })
-    
-            })
-        </script>
-        
-    </body>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example28" class="form-control form-control-lg" />
+              <label class="form-label" for="form2Example28">Tanggal Lahir</label>
+            </div>
+
+            <div class="pt-1 mb-4">
+              <button class="btn btn-info btn-lg btn-block" type="button">Login</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+      <div class="col-sm-6 px-0">
+        <img src="modal_1.png" style="width: 630px; height:555px;">
+      </div>
+    </div>
+  </div>
+</section>
 </html>
   
