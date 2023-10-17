@@ -41,17 +41,18 @@
 
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-          <form style="width: 23rem;">
+          <form style="width: 23rem;" method="post" action="login">
+            @csrf
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">LOGIN HERE! </h3>
 
             <div class="form-outline mb-4">
-              <input type="username" id="username" class="form-control form-control-lg" />
+              <input type="text" id="username" placeholder="Username" name="username" class="form-control form-control-lg" />
               <label class="form-label" for="username">NIK/NIP/NO.KK</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="password" class="form-control form-control-lg" />
+              <input type="password" id="password" name="password" placeholder="Password" class="form-control form-control-lg" />
               <label class="form-label" for="password">Tanggal Lahir</label>
             </div>
 
@@ -92,7 +93,7 @@
                 timer: 1000,
                 showConfirmButton: false
             })
-            window.location = '/dashboard_admin'
+            window.location = '/dashboard_admin.index'
             console.log('success')
         }).catch(({response}) => {
             if (!$('.err-message').text()) {
