@@ -80,3 +80,83 @@ a {
 a:hover {
     background-color: #0056b3;
 }
+
+
+.sidebar {
+    background-color: #3F75C3;
+    color: white;
+    width: 200px;
+    height: 500px;
+    margin-left: -8px;
+    text-decoration: none;
+    float: left; 
+}
+
+.sidebar li {
+    padding-top: 30px;
+    padding-left: 20px;
+    list-style: none; 
+    color: white; 
+    display: flex; /* Menggunakan flexbox untuk mengatur layout */
+    align-items: center; /* Mengatur vertikal align ke tengah */
+
+}
+
+.sidebar li a {
+    color: white; 
+    text-decoration: none;
+}
+
+.sidebar li img {
+    margin-bottom: 5px;
+    margin-right: 10px; 
+}
+h2 {
+    margin-left: 210px; 
+}
+.garis-vertikal {
+    width: 2px; /* Lebar garis vertikal */
+    height: 20px; /* Tinggi garis vertikal */
+    background-color: #030A48; /* Warna garis vertikal (contoh: hitam) */
+    display: inline-block; /* Untuk mengatur elemen dalam satu baris */
+}
+.dashboard {
+    font-size: 12px;
+    color: #030A48;
+}
+.hi {
+    font-size: 12px;
+    color: #030A48;
+    margin-left: 210px;
+    height: 50px;
+    background-color: #D9D9D9;
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak */
+    align-items: center; /* Mengatur vertikal align ke tengah */
+    padding-top: 5px; /* Jarak di atas elemen */
+    padding-left: 10px; /* Jarak di sebelah kiri elemen */
+    border-radius: 10px;
+}
+
+.row {
+    display: grid; /* Menggunakan grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Membagi menjadi 4 kolom yang sama lebar */
+    gap: 20px; /* Jarak antara elemen-elemen */
+}
+
+.card-blue {
+    margin-top: 20px;
+    margin-left: 30px;
+    background-color: #ADD0D8;
+    color: #030A48;
+    padding: 20px;
+    text-align: center;
+    width: 140px;
+    height: 70px;
+    border-radius: 30px;
+}
+
+.card-blue h2 {
+    margin: 0; /* Menghapus margin bawaan dari elemen <h2> */
+    padding-top: 7px;
+    font-size: 15px;
+}

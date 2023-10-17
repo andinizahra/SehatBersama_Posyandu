@@ -19,7 +19,7 @@ class UserController extends Controller
             'user' => User::all()
         ];
 
-        return view('dashboard.user.index', $data);
+        return view('dashboard_admin.user.index', $data);
     }
 
     public function store(UserRequest $request): RedirectResponse
@@ -29,7 +29,7 @@ class UserController extends Controller
         $user->password = Hash::make($data['password']);
         $user->save();
 
-        return redirect()->to('/dashboard/user')->with('success', 'User successfully created');
+        return redirect()->to('/dashboard_admin/user')->with('success', 'User successfully created');
     }
 
     public function update(int $id, UserUpdateRequest $request): RedirectResponse
@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->fill($data);
         $user->save();
 
-        return redirect()->to('/dashboard/user')->with('success', 'Update success');
+        return redirect()->to('/dashboard_admin/user')->with('success', 'Update success');
     }
 
     public function delete(int $id): JsonResponse
