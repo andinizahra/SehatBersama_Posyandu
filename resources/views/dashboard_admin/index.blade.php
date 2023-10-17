@@ -9,15 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=josefin-sans:500">
     <title>Dashboard</title>
 </head>
 <body>
     <div class="container">
-        <nav class="nav" style="margin: -8px; margin-top: -20px; height: 80px;">
-            <div>
-                <img src="logo_posyandu.png" style="width:200px; height:100px margin-top: 100px;">
+        <nav class="nav">
+            <div class="nav-left">
+                <img src="logo_posyandu.png" style="width: 220px; height: 120px; margin-top:20px; ">
             </div>
-                <a class="btn logout btn-danger" href="{{ route('logout') }}">{{ __('Logout') }}</a>
+            <div class="nav-right">
+                <a class="btnLogout" href="{{ route('logout') }}">{{ __('Logout') }}</a>
+            </div>
         </nav>
     </div>
 </body>
