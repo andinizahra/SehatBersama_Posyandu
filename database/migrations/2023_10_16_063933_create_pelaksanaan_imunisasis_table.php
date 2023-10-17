@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelaksanaan_imunisasis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+        Schema::create('pelaksanaan_imunisasi', function (Blueprint $table) {
+        $table->integer('pelaksanaan_imunisasi')->primary();
+           $table->text('deskripsi', 250)->nullable(true);
+           $table->date('tanggal_vaksin')->nullable(false);
+           $table->string('foto_dokumentasi')->nullable(false);
+           $table->foreign('nik_anak')->on('anak')->references('nik_anak');
+    });
+
+}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelaksanaan_imunisasis');
+        Schema::dropIfExists('pelaksanaan_imunisasi');
     }
 };

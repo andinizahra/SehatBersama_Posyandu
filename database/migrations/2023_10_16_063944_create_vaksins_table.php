@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vaksins', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('vaksin', function (Blueprint $table) {
+            $table->integer('id_vaksin')->primary();
+            $table->enum('jenis_vaksin')->nullable(false);
+            $table->date('jadwal_vaksin')->nullable(false);
+           
         });
     }
 

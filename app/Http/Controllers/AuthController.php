@@ -24,7 +24,7 @@ class AuthController extends Controller
             return view('login');
         }
 
-        return redirect()->to('/dashboard');
+        return redirect()->to('/dashboard_admin.index');
     }
 
     public function login(UserLoginRequest $request)
@@ -33,7 +33,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
-            return Auth::user();
+            return redirect()->to('/dashboard');
         }
 
         return response()->json([
