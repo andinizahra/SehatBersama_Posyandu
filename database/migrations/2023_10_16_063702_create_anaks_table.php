@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('nik_anak')->nullable(false);
             $table->string('nama_anak', 100)->nullable(false);
             $table->string('nama_orang_tua', 100)->nullable(false);
-            $table->string('jenis_kelamin', 10)->nullable(false)->comment('perempuan atau laki-laki');
-            $table->string('foto_identitas', 255)->nullable(); // Jika foto identitas opsional, gunakan nullable
+            $table->enum('jenis_kelamin', array('laki-laki','perempuan'))->nullable()->change();
+            $table->string('foto_identitas', 50)->nullable(); // Jika foto identitas opsional, gunakan nullable
             $table->string('nomor_telepon_orang_tua', 15); // Tidak perlu nullable jika nomor telepon wajib
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir', 100)->nullable(false);
