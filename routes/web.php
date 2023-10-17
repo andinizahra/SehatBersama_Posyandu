@@ -29,4 +29,6 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::middleware(['role:admin'])->group(function () {
     });
+
+
 });
