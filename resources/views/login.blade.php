@@ -29,6 +29,7 @@
             }
         </style>
     </head>
+    <body>
     <section class="vh-100">
   <div class="container-fluid">
     <div class="row">
@@ -45,17 +46,17 @@
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">LOGIN HERE! </h3>
 
             <div class="form-outline mb-4">
-              <input type="email" id="form2Example18" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example18">NIP</label>
+              <input type="username" id="username" class="form-control form-control-lg" />
+              <label class="form-label" for="username">NIK/NIP/NO.KK</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example28" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example28">Tanggal Lahir</label>
+              <input type="password" id="password" class="form-control form-control-lg" />
+              <label class="form-label" for="password">Tanggal Lahir</label>
             </div>
 
             <div class="pt-1 mb-4">
-              <button class="btn btn-info btn-lg btn-block" type="button">Login</button>
+              <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
             </div>
           </form>
 
@@ -68,5 +69,39 @@
     </div>
   </div>
 </section>
+  <script type="module">
+    $('form').submit(async function (e) {
+        e.preventDefault();
+        let username = $('#username').val();
+        let password = $('#password').val();
+        var _tok = "{{csrf_token()}}";
+
+        await axios({
+            method: 'post',
+            url: "{{url('/login')}}",
+            data: {
+                username : username,
+                password : password,
+                _token : _tok
+            }
+        }).then(async () => {
+            await swal.fire({
+                title: 'Login berhasil!',
+                text: 'Redirecting to dashboard...',
+                icon: 'success',
+                timer: 1000,
+                showConfirmButton: false
+            })
+            window.location = '/dashboard_admin'
+            console.log('success')
+        }).catch(({response}) => {
+            if (!$('.err-message').text()) {
+                $('.err-message').append(document.createTextNode(response.data.errors.message))
+            }
+        })
+
+    })
+</script>
+</body>
 </html>
   

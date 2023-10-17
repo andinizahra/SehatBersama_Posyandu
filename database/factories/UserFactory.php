@@ -18,18 +18,11 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
- {
-            $nik = '198408082011012003'; //NIP Admin
-            $tanggal_lahir = '1990-01-01'; // Tanggal Lahir Admin
-            
-          return [
-              'nik' => $nik,
-              'tanggal_lahir' => $tanggal_lahir,
-              'username' => $nik, // Gunakan NIK sebagai username
-              'password' => Hash::make($tanggal_lahir), // Gunakan tanggal lahir sebagai password
-              'role' => $faker->randomElement(['Admin', 'Kader', 'Keluarga'])
-    ];
-};
+        return [
+            'username' => fake()->userName(),
+            'password' => Hash::make('12345'), 
+            'role' => fake()->randomElement(['Admin', 'Kader', 'Keluarga'])
+        ];
     }
 
     /**

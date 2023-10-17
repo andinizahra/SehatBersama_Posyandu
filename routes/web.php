@@ -1,8 +1,8 @@
 <?php
 
-
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('', function() {
     return redirect('/login');
 });
@@ -28,5 +27,14 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
     /* Dashboard */
     Route::get('/', [DashboardController::class, 'index']);
     Route::middleware(['role:admin'])->group(function () {
+        /* User */
+        Route::controller(UserController::class)->group(function () {
+            Route::get('/user', 'index');
+            Route::post('/user/tambah', 'store');
+            Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
+            Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
+        });
+        });
+
     });
-});
+
