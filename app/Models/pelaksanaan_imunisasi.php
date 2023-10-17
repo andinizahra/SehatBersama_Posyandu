@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class pelaksanaan_imunisasi extends Model
 {
     use HasFactory;
+    
 }

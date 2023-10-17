@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class ibu_hamil extends Model
 {
     use HasFactory;
+    protected $table = 'ibu_hamil'; 
+
+    protected $fillable = [
+        'nik_ibu_hamil',
+        'nama_ibu_hamil',
+        'tanggal_lahir',
+        'foto_identitas',
+        'nomor_telepon_orang_tua'
+    ];
+
+    protected $primaryKey = 'nik_ibu_hamil'; 
+
+    public $incrementing = false;  
+
+    public $timestamps = false; 
+
 }

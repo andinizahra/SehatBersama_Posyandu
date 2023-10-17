@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('keluarga', function (Blueprint $table) {
             // $table->id();
-            $table->integer('no_kk')->primary(); // Mendefinisikan no_kk sebagai primary key
+            $table->integer('no_kk')->primary();
             $table->string('nama_kepala_keluarga', 100)->nullable(false);
             $table->string('fot o_kartu_keluarga')->nullable(false);
             $table->string('foto_kartu_tanda_penduduk')->nullable(false);

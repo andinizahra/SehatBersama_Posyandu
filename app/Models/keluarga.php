@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class keluarga extends Model
 {
     use HasFactory;
+    
+
 }

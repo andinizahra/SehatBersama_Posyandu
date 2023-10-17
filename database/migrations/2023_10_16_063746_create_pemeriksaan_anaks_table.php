@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pemeriksaan_anaks', function (Blueprint $table) {
+        Schema::create('pemeriksaan_anak', function (Blueprint $table) {
             $table->id();
+            $table->integer('ID_pemeriksaan');
+            $table->date('tanggal_pemeriksaan');
+            $table->enum('golongan_darah', array('A-+','B-+','AB-+','O-+'))->nullable()->default(null);
+            $table->integer('tinggi_badan');
+            $table->integer('berat_badan');
+            $table->float('lingkar_kepala');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pemeriksaan_anaks');
+        Schema::dropIfExists('pemeriksaan_anak');
     }
 };

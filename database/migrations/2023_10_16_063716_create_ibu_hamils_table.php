@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ibu_hamils', function (Blueprint $table) {
+        Schema::create('ibu_hamil', function (Blueprint $table) {
             $table->id();
+            $table->char('nik_ibu_hamil', 16)->unique(); // Pastikan kolom ini unik
+            $table->string('nama_ibu_hamil', 100);
+            $table->date('tanggal_lahir');
+            $table->string('foto_identitas', 50)->nullable();
+            $table->string('nomor_telepon_orang_tua', 15);
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ibu_hamils');
+        Schema::dropIfExists('ibu_hamil');
     }
 };
