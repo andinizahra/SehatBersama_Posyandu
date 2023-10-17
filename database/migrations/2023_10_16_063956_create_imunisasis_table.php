@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('imunisasis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->integer('id_imunisasi')->primary();
+            $table->enum('jenis_imunisasi')->nullable(false);
+            $table->datetimes('jadwal_imunisasi')->nullable(false);
         });
     }
 

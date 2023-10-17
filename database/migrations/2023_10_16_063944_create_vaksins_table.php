@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vaksin', function (Blueprint $table) {
             $table->integer('id_vaksin')->primary();
             $table->enum('jenis_vaksin')->nullable(false);
-            $table->date('jadwal_vaksin')->nullable(false);
+            $table->datetimes('jadwal_vaksin')->nullable(false);
            
         });
     }

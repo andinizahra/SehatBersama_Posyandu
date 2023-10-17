@@ -26,15 +26,30 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::prefix('/dashboard')->middleware('auth')->group(function () {
     /* Dashboard */
     Route::get('/', [DashboardController::class, 'index']);
-    Route::middleware(['role:admin'])->group(function () {
+    Route::middleware(['role:admin'])->group(function (){
         /* User */
-        Route::controller(UserController::class)->group(function () {
+         Route::controller(UserController::class)->group(function () {
             Route::get('/user', 'index');
             Route::post('/user/tambah', 'store');
             Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
             Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
-        });
+            });
         });
 
-    });
+        Route::prefix('/dashboard')->middleware('auth')->group(function () {
+            Route::get('/', [DashboardController::class, 'index']);
+            Route::middleware(['role:keluarga'])->group(function () {
+                /* User */
+                Route::controller(UserController::class)->group(function () {
+                    Route::get('/user', 'index');
+                    Route::post('/user/tambah', 'store');
+                    Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
+                    Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
+                });
 
+            });
+        });
+    }); 
+        
+            
+            
