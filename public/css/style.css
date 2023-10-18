@@ -1,4 +1,4 @@
-<!--navbar-->
+
 * {
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -19,7 +19,7 @@
     align-items: center; /* Mengatur elemen agar sejajar vertikal */
 }
 
-<!--logout-->
+
 .btnLogout {
     background-color: red;
     color: white;   
@@ -28,57 +28,6 @@
     border: none;
     cursor: pointer;
     border-radius: 20px;
-}
-
-<!--profil_kader-->
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-.profile-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-h1 {
-    margin-bottom: 10px;
-}
-
-img {
-    max-width: 200px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-a:hover {
-    background-color: #0056b3;
 }
 
 
@@ -120,6 +69,8 @@ h2 {
     background-color: #030A48; /* Warna garis vertikal (contoh: hitam) */
     display: inline-block; /* Untuk mengatur elemen dalam satu baris */
 }
+
+
 .dashboard {
     font-size: 12px;
     color: #030A48;
@@ -159,4 +110,14 @@ h2 {
     margin: 0; /* Menghapus margin bawaan dari elemen <h2> */
     padding-top: 7px;
     font-size: 15px;
+}
+
+
+.btn-gradient{
+    background: linear-gradient(to right, #385e96, #0a3369);
+    color: white; 
+}
+
+.bg-c-blue{
+    background-color: #385e96;
 }

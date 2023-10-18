@@ -93,7 +93,6 @@
                 timer: 1000,
                 showConfirmButton: false
             })
-            window.location = '/dashboard_admin.index'
             console.log('success')
         }).catch(({response}) => {
             if (!$('.err-message').text()) {

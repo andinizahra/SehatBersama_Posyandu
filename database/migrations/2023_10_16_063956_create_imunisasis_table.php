@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('imunisasis', function (Blueprint $table) {
+        Schema::create('imunisasi', function (Blueprint $table) {
             $table->integer('id_imunisasi')->primary();
-            $table->enum('jenis_imunisasi')->nullable(false);
-            $table->datetimes('jadwal_imunisasi')->nullable(false);
+            $table->enum('jenis_imunisasi', ['imunisasi_1', 'imunisasi_2', 'imunisasi_3']);
+            $table->date('jadwal_imunisasi')->nullable(false);
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('imunisasis');
+        Schema::dropIfExists('imunisasi');
     }
 };
