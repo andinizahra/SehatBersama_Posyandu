@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-<<<<<<< HEAD
 use App\Http\Controllers\KeluargaController;
-=======
 use App\Http\Controllers\DataAnakController;
 use App\Http\Controllers\DataIbuHamilController;
->>>>>>> ba0914484b8bc33a56eeb0ba8664e26d9707c7f9
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +39,6 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             });
         });
 
-<<<<<<< HEAD
 //         Route::prefix('/dashboard_keluarga')->middleware('keluarga')->group(function () {
 //             Route::get('/', [DashboardController::class, 'index']);
 //             Route::middleware(['role:keluarga'])->group(function () {
@@ -56,7 +52,7 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
 
             });
         // });
-=======
+
         Route::prefix('/dashboard')->middleware('auth')->group(function () {
             /* Dashboard */
             Route::get('/', [DashboardController::class, 'index']);
@@ -79,8 +75,8 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             });
        
 
-        Route::prefix('/dashboard')->middleware('auth')->group(function () {
-            Route::get('/', [DashboardController::class, 'index']);
+        Route::prefix('/dashboard_keluarga')->middleware('auth')->group(function () {
+            Route::get('/', [DashboardController::class, 'indexKeluarga']);
             Route::middleware(['role:keluarga'])->group(function () {
                 /* User */
                 Route::controller(UserController::class)->group(function () {
@@ -92,5 +88,3 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
 
             });
         });
-    });
->>>>>>> ba0914484b8bc33a56eeb0ba8664e26d9707c7f9

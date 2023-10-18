@@ -50,9 +50,11 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+          "dont-discover": [
+            "barryvdh/laravel-ide-helper"
+          ]
         }
-    },
+      },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
@@ -61,7 +63,7 @@
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }
-    },
+     },
     "minimum-stability": "stable",
     "prefer-stable": true
 }

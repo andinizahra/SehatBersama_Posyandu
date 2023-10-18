@@ -9,6 +9,7 @@
 <div class="row">
     <div class="vol-md-12">
     @if(auth()->user()->role == 'admin')
+       
         <div class="card rounded-lg">
             <div class="card-body text-center col" style="background-image  : linear-gradient(to right, #F2ECBE,#F9DEC9)">
                 <h5
@@ -20,6 +21,7 @@
                 </span>
             </div>
         </div>
+    
     </div>
 </div>
 </div>
@@ -38,6 +40,6 @@
                         </div>
                     </a>
                 </div>
-
+                @endif 
     </body>
 </html>
