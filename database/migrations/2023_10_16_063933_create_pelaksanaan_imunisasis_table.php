@@ -16,7 +16,7 @@ return new class extends Migration
            $table->text('deskripsi', 250)->nullable(true);
            $table->date('tanggal_vaksin')->nullable(false);
            $table->string('foto_dokumentasi')->nullable(false);
-           $table->foreign('id_imunisasi')->on('imunisasi')->references('id_imunisasi');
+           //$table->foreign('id_imunisasi')->on('imunisasi')->references('id_imunisasi');
         //    $table->foreign('nik_anak')->on('anak')->references('nik_anak');
     });
 

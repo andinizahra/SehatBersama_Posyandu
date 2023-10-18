@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('vaksin', function (Blueprint $table) {
             $table->integer('id_vaksin')->primary();
-            $table->enum('jenis_vaksin')->nullable(false);
-            $table->datetimes('jadwal_vaksin')->nullable(false);
+            $table->enum('jenis_vaksin', ['vaksin_1', 'vaksin_2', 'vaksin_3']);
+            $table->date('jadwal_vaksin')->nullable(false);
            
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vaksins');
+        Schema::dropIfExists('vaksin');
     }
 };
