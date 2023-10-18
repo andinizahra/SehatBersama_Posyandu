@@ -24,16 +24,14 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('/dashboard')->middleware('auth')->group(function () {
-    Route::get('/user', [UserController::class, 'index']);
     /* Dashboard */
     Route::get('/', [DashboardController::class, 'index']);
     Route::middleware(['role:admin'])->group(function (){
         Route::get('/dashboard_admin/user', 'UserController@index')->name('user.index');
-        Route::get('/user', [UserController::class, 'index']);
 
         /* User */
          Route::controller(UserController::class)->group(function () {
-            Route::get('/user', [UserController::class, 'index']);
+            Route::get('/user', [DashboardController::class, 'index']);
             Route::post('/user/tambah', 'store');
             Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
             Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
@@ -41,19 +39,6 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
         });
         
 
-        // Route::prefix('/dashboard')->middleware('auth')->group(function () {
-        //     Route::get('/', [DashboardController::class, 'index']);
-        //     Route::middleware(['role:keluarga'])->group(function () {
-        //         /* User */
-        //         Route::controller(UserController::class)->group(function () {
-        //             Route::get('/user', 'index');
-        //             Route::post('/user/tambah', 'store');
-        //             Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
-        //             Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
-        //         });
-
-        //     });
-        // });
     }); 
         
             

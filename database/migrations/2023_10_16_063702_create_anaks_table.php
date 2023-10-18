@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('anak', function (Blueprint $table) {
             $table->char('nik_anak')->primary();
             $table->integer('no_kk')->nullable(false);
-            $table->string('nik_anak')->nullable(false);
             $table->string('nama_anak', 100)->nullable(false);
             $table->string('nama_orang_tua', 100)->nullable(false);
             $table->enum('jenis_kelamin', array('laki-laki','perempuan'))->nullable()->change();

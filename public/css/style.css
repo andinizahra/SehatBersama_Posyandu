@@ -1,3 +1,4 @@
+
 * {
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -17,6 +18,8 @@
     display: flex; /* Menggunakan display flex agar gambar dan teks di dalam navbar sejajar */
     align-items: center; /* Mengatur elemen agar sejajar vertikal */
 }
+
+
 .btnLogout {
     background-color: red;
     color: white;   
@@ -26,6 +29,7 @@
     cursor: pointer;
     border-radius: 20px;
 }
+
 
 .sidebar {
     background-color: #3F75C3;
@@ -65,6 +69,8 @@ h2 {
     background-color: #030A48; /* Warna garis vertikal (contoh: hitam) */
     display: inline-block; /* Untuk mengatur elemen dalam satu baris */
 }
+
+
 .dashboard {
     font-size: 12px;
     color: #030A48;
@@ -104,4 +110,14 @@ h2 {
     margin: 0; /* Menghapus margin bawaan dari elemen <h2> */
     padding-top: 7px;
     font-size: 15px;
+}
+
+
+.btn-gradient{
+    background: linear-gradient(to right, #385e96, #0a3369);
+    color: white; 
+}
+
+.bg-c-blue{
+    background-color: #385e96;
 }
