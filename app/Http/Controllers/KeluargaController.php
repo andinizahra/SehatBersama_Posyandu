@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\keluarga;
+use Illuminate\View\View;
+
 
 class KeluargaController extends Controller
 {
-    public{
+    public function index():View
+    {
         $data = [
-            'keluarga' => Keluarga::all()
+            'keluarga' => User::all()
         ];
 
-        return view('dashboard.keluarga.index', $data)
+        return view('dashboard_keluarga.index', $data);
     }
 }
+ 

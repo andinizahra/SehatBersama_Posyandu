@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,20 +37,16 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             });
         });
 
-        Route::prefix('/dashboard')->middleware('auth')->group(function () {
-            Route::get('/', [DashboardController::class, 'index']);
-            Route::middleware(['role:keluarga'])->group(function () {
-                /* User */
-                Route::controller(UserController::class)->group(function () {
-                    Route::get('/user', 'index');
-                    Route::post('/user/tambah', 'store');
-                    Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
-                    Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
+//         Route::prefix('/dashboard_keluarga')->middleware('keluarga')->group(function () {
+//             Route::get('/', [DashboardController::class, 'index']);
+//             Route::middleware(['role:keluarga'])->group(function () {
+                /* Keluarga */
+                Route::controller(KeluargaController::class)->group(function () {
+                    Route::get('keluarga', 'index');
+                    Route::post('/keluarga/tambah', 'store');
+                    Route::post('/keluarga/{id}/edit', 'update')->where('id', '[0-9+]');
+                    Route::delete('/keluarga/{id}/delete', 'delete')->where('id', '[0-9]+');
                 });
 
             });
-        });
-    }); 
-        
-            
-            
+        // });
