@@ -3,7 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col d-flex justify-content-between mb-2">
-            <a class="btn btn-gradient" href="{{url('/dashboard_kader')}}">
+            <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
+            <a class="btn btn-gradient" href="{{url('/dashboard')}}">
                 Kembali</a>
             <button type="button" class="btn bg-c-blue"" data-bs-toggle="modal"
                     data-bs-target="#tambah-data-modal"> Tambah
@@ -31,10 +32,9 @@
                                     <label>Nama Kepala Keluarga</label>
                                     <select name="anak" id="DataAnak" class="form-select mb-3"></select>
 
-                                    <label>Plih Jenis Kelamin</label>
+                                    <label>Pilih Jenis Kelamin</label>
                                     <select name="anak" id="DataAnak" class="form-select mb-3"></select>
-                                        <option selected value="">Perempuan</option>
-                                        <option selected value="">Laki-Laki</option>
+                                        <option selected value="">pilih jenis Kelamin</option>
                                         @foreach($data_anak as $da)
                                             <option value="{{$da->id}}">{{$da->data_anak}}</option>
                                         @endforeach
@@ -90,6 +90,34 @@
                             <th>Berat Badan</th>
                             <th>Gol.dar</th>
                         </tr>
+                        <tr>
+                            <th>1</th>
+                            <th>Kaylaa</th>
+                            <th>123456789</th>
+                            <th>saddam</th>
+                            <th>perempuan</th>
+                            <th>Bekasi, 19 September 2021</th>
+                            <th>mega</th>
+                            <th>098766725</th>
+                            <th>JL. Pemuda</th>
+                            <th>-</th>
+                            <th>15</th>
+                            <th>O</th>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <th>Naya</th>
+                            <th>123456789</th>
+                            <th>Nursya'bani</th>
+                            <th>perempuan</th>
+                            <th>Bekasi, 19 Desember 2021</th>
+                            <th>yani</th>
+                            <th>098766725</th>
+                            <th>JL. Bintara</th>
+                            <th>-</th>
+                            <th>15</th>
+                            <th>O</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <?php
@@ -132,7 +160,7 @@
                                                 <div class="form-group">
                                                     @auth
                                                         <input type="hidden" name="data_anak" class="d-none"
-                                                               value="{{ Auth::anak()["data"] }}">
+                                                               value="{{ Auth::user()["data"] }}">
                                                     @endauth
                                                     <label>Nomor NIK</label>
                                                     <select name="data_anak" id="DataAnak"
@@ -203,7 +231,7 @@
             $(`.fileFoto`).text(fileFoto);
         })
 
-        $('#tambah-surat-form').on('submit', function (e) {
+        $('#tambah-data-form').on('submit', function (e) {
             e.preventDefault();
             let data = new FormData(e.target);
             console.log(Object.fromEntries(data))

@@ -5,7 +5,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\DataAnakController;
 use App\Http\Controllers\DataIbuHamilController;
->>>>>>> ba0914484b8bc33a56eeb0ba8664e26d9707c7f9
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +42,24 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             });
         });
 
+        Route::get('/', [DashboardController::class, 'index']);
+         Route::middleware(['role:kader'])->group(function (){
+
+        Route::controller(DataAnakController::class, 'index')->group(function () {
+            Route::get('/dashboard_kader/data_anak', 'index');
+            Route::post('/dashboard_kader/data_anak/tambah', 'store');
+            Route::post('/dashboard_kader/data_anak/{id}/edit', 'update')->where('id', '[0-9+]');
+            Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
+            });
+        });
+        Route::controller(DataIbuHamilController::class, 'index')->group(function () {
+            Route::get('/dashboard/data_ibu_hamil', [DataIbuHamilController::class, 'index']);
+            Route::get('/dashboard/data_ibu_hamil/add', [DataIbuHamilController::class, 'addIbu']);
+            Route::post('dashboard/data_ibu_hamil/addSubmit', [DataIbuHamilController::class, 'addsubmit']);
+            Route::get('data_ibu_hamil/hapus/{data_ibu_hamil}', [DataIbuHamilController::class,'destroy']);
+        });
+  
+
 //         Route::prefix('/dashboard_keluarga')->middleware('keluarga')->group(function () {
 //             Route::get('/', [DashboardController::class, 'index']);
 //             Route::middleware(['role:keluarga'])->group(function () {
@@ -54,5 +71,5 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
                     Route::delete('/keluarga/{id}/delete', 'delete')->where('id', '[0-9]+');
                 });
 
-            });
         // });
+            });

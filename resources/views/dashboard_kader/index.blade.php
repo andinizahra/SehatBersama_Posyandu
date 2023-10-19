@@ -27,10 +27,11 @@
             <ul>
                 <li><img src="{{ asset('homeIcon.svg') }}"><a href="{{ url('/dashboard_kader') }}">Dashboard</a></li>
                 <li><img src="{{ asset('profil.svg') }}"><a href="#">Profil</a></li>
-                <li><img src="{{ asset('data.svg') }}"><a href="{{ url('/dashboard_kader/data_anak') }}">Data Anak</a></li>
-                <li><img src="{{ asset('data.svg') }}"><a href="#">Data Ibu Hamil</a></li>
+                <li><img src="{{ asset('data.svg') }}"><a href="{{ url('/dashboard/dashboard_kader/data_anak') }}">Data Anak</a></li>
+                <li><img src="{{ asset('data.svg') }}"><a href="{{ url('/dashboard/dashboard_kader/data_ibu_hamil') }}">Data Ibu Hamil</a></li>
                 <li><img src="{{ asset('pemeriksaan.svg') }}"><a href="#">Pemeriksaan</a></li>
-                <li><img src="{{ asset('activity.svg') }}"><a href="#">Log</a></li>
+                <li><img src="{{ asset('pemeriksaan.svg') }}"><a href="{{ url('/dashboard/dashboard_kader/dokumentasi') }}">Dokumentasi</a></li>
+                <li><img src="{{ asset('activity.svg') }}"><a href="{{ url('/dashboard/dashboard_kader/log') }}">Log</a></li>
             </ul>
         </div>
         
@@ -61,7 +62,8 @@
                     <div class="card-blue">
                        <img src="activity.svg"><a href="{{url('dashboard_kader', ['log'])}}" class="nav-item nav-link">Log</a>
                     </div>
-                </div>              
+                </div>   
+                
                 </div>
             </div>
                 </div>

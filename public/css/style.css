@@ -121,3 +121,225 @@ ul
     grid-template-columns: auto;
     display: grid;
   }
+
+
+/* Gaya untuk tombol */
+.btn {
+    /* Properti styling di sini */
+    /* Contoh: */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-outline-success {
+    /* Properti styling di sini */
+    /* Contoh: */
+    border: 2px solid #28a745;
+    color: #28a745;
+    background-color: transparent;
+}
+
+/* Gaya untuk tabel */
+.table {
+    /* Properti styling di sini */
+    /* Contoh: */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    /* Properti styling di sini */
+    /* Contoh: */
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    /* Properti styling di sini */
+    /* Contoh: */
+    background-color: #f2f2f2;
+}
+
+/* Gaya untuk modal */
+.modal {
+    /* Properti styling di sini */
+    /* Contoh: */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    /* Properti styling di sini */
+    /* Contoh: */
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Gaya untuk tombol close modal */
+.close {
+    /* Properti styling di sini */
+    /* Contoh: */
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    /* Properti styling di sini */
+    /* Contoh: */
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Style for the Data Ibu Hamil page */
+.DataIbu {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.carddata {
+    padding: 20px;
+}
+
+/* Style for the search input */
+.input-group {
+    margin-bottom: 10px;
+}
+
+/* Style for the "Tambah" button */
+.float-end {
+    margin-top: 10px;
+}
+
+/* Style for the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+/* Style for the action icons */
+.table td a {
+    margin: 0 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+/* Style for the confirmation dialog */
+.confirm-dialog {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.confirm-dialog h3 {
+    margin-top: 0;
+}
+
+.confirm-dialog button {
+    margin: 5px;
+}
+
+/* Style for the image */
+.table td img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style for the "Image not found" message */
+.table td p {
+    color: red;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+/* Style for the Galeri Sekolah page */
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border-color: #28a745;
+}
+
+/* Style for the images */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.caption {
+    font-size: 18px;
+}
+
+/* Hover effect for images */
+.image-container:hover .overlay {
+    opacity: 1;
+}

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class ibu_hamil extends Model
 {
     use HasFactory;
@@ -14,8 +15,8 @@ class ibu_hamil extends Model
         'nik_ibu_hamil',
         'nama_ibu_hamil',
         'tanggal_lahir',
-        'foto_identitas',
-        'nomor_telepon_orang_tua'
+        'nomor_telepon_orang_tua',
+        'foto'
     ];
 
     protected $primaryKey = 'nik_ibu_hamil'; 
