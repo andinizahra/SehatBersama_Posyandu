@@ -59,22 +59,12 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
         Route::middleware(['role:keluarga'])->group(function () { });
     });
 
-    //Informasi Kesehatan
-    Route::controller(InformasiKesehatanController::class)->group(function () {
-        Route::get('/informasi_kesehatan', 'index');
-        Route::post('/infromasi_kesehatan/tambah', 'store');
-        Route::post('/informasi_kesehatan/{id}/edit', 'update')->where('id', '[0-9+]');
-        Route::delete('/informasi_kesehatan/{id}/delete', 'delete')->where('id', '[0-9]+');
-    });
-});
-
 //Pemeriksaan Anak
 Route::controller(PemeriksaanAnakController::class)->group(function () {
     Route::get('/pemeriksaan_anak', 'index');
     Route::post('/pemeriksaan_anak/tambah', 'store');
     Route::post('/pemeriksaan_anak/{id}/edit', 'update')->where('id', '[0-9+]');
     Route::delete('/pemeriksaan_anak/{id}/delete', 'delete')->where('id', '[0-9]+');
+    
+    });
 });
-
-        // }); 
-        // }); 

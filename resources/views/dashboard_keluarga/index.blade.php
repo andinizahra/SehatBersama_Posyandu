@@ -1,14 +1,7 @@
 @extends('layouts.layout2')
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
+@section('content')
+<div class="container mt-5">
+    <h1>POSYANDU</h1>
+    <span>Posyandu adalah unit pelayanan kesehatan masyarakat yang berperan sebagai pusat pelayanan kesehatan di tingkat masyarakat, terutama dalam hal perawatan kesehatan ibu dan anak.</span>
+</div>
+@endsection

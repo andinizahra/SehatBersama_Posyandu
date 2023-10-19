@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\PemeriksaanAnak;
 use Database\Factories\PemeriksaanAnakFactory;
 use Illuminate\Http\Request;
 

@@ -12,6 +12,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
+
 
     <style>
       .person {
@@ -25,6 +27,7 @@
 .navbar {
     list-style: none; /* Menghilangkan daftar pemilihan */
     padding: 0; /* Menghapus padding */
+    position: sticky;
     
 }
 
@@ -53,15 +56,13 @@
 </div>
 <div class="collapse navbar-collapse" id="navbarNav">
      <ul class="navbar">
-        <li><a href="#">Informasi Kesehatan</a></li>
-        <li><a href="{{url('dashboard_keluarga', ['pemeriksaan_anak'])}} ">pemeriksaan_anak</a></li>
+        <li><a href="{{url('dashboard_keluarga', ['informasi_anak'])}}">Informasi Kesehatan</a></li>
+        <li><a href="{{url('dashboard_keluarga', ['pemeriksaan_anak'])}}">pemeriksaan anak</a></li>
     </ul>
 </div>
 
+<div style="" class="container mt-4">
 @yield('content')
-
-</nav>
-            </nav>
-    </div>
+</div>
 </body>
 </html>
