@@ -15,7 +15,7 @@
                     <b> WELCOME <i>{{ Auth::user()->username }}</i>!</b>
                 </h5>
                 <span style="font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; vertical-align: middle;">
-                    <b>SURAT PIYO EXPRESS</b>
+                    <b></b>
                 </span>
             </div>
         </div>
