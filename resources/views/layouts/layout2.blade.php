@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>@yield('title')</title>
 
-    <title>dashboard_keluarga</title>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <style>
+      .person {
+    cursor:pointer;
+    position: absolute; /* Mengatur posisi absolut */
+    top: 10px; /* Atur jarak dari atas */
+    right: 15px; /* Atur jarak dari kanan */
+    color: white;
+}
+
+.navbar {
+    list-style: none; /* Menghilangkan daftar pemilihan */
+    padding: 0; /* Menghapus padding */
+    
+}
+
+.navbar li {
+    display: inline; /* Atur elemen list item agar berjejer horizontal */
+    margin-right: 350px; /* Spasi antara item navbar */
+}
+
+.navbar a {
+    text-decoration: none; /* Menghilangkan garis bawah dari tautan */
+}
+    </style>
 </head>
-<body>
+<body> 
 <div class="container">
         <nav class="nav" width:"50vw">
-            <div clas s="nav-left">
+            <div class="nav-left">
+            <a href="halaman_profil.php">
                 <img src="logo_posyandu.png" style="width: 220px; height: 120px; margin-top:20px; ">
             </div>
             <div class="person">
@@ -21,13 +51,15 @@
   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 </svg>
 </div>
-    <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+<div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar">
+        <li><a href="#">Informasi Kesehatan</a></li>
+        <li><a href="{{url('dashboard_keluarga', ['pemeriksaan_anak'])}} ">pemeriksaan_anak</a></li>
     </ul>
-  </div>
+</div>
+
+@yield('content')
+
 </nav>
             </nav>
     </div>

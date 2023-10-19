@@ -106,18 +106,4 @@ h2 {
     font-size: 15px;
 }
 
-/* Gaya untuk <ul> dalam navbar */
-.navbar-nav {
-    margin-top: 10px; /* Margin atas */
-    text-align: center; /* Pusatkan menu horizontal */
-}
 
-
-
-ul
- {
-    list-style-type: none;
-    color: #007BFF;
-    grid-template-columns: auto;
-    display: grid;
-  }

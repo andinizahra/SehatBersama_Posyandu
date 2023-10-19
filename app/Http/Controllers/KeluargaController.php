@@ -13,7 +13,11 @@ class KeluargaController extends Controller
         $data = [
             'keluarga' => User::all()
         ];
-
+        if (Auth::attempt($data)) {
+            $request->session()->regenerate();
+            return redirect()->to('/dashboard');
+        }
+        
         return view('dashboard_keluarga.index', $data);
     }
 }
