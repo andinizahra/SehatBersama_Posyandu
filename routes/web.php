@@ -2,12 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-<<<<<<< HEAD
 use App\Http\Controllers\KeluargaController;
-=======
 use App\Http\Controllers\DataAnakController;
-use App\Http\Controllers\DataIbuHamilController;
->>>>>>> ba0914484b8bc33a56eeb0ba8664e26d9707c7f9
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,27 +38,21 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             });
         });
 
-<<<<<<< HEAD
-//         Route::prefix('/dashboard_keluarga')->middleware('keluarga')->group(function () {
-//             Route::get('/', [DashboardController::class, 'index']);
-//             Route::middleware(['role:keluarga'])->group(function () {
-                /* Keluarga */
-                Route::controller(KeluargaController::class)->group(function () {
-                    Route::get('keluarga', 'index');
-                    Route::post('/keluarga/tambah', 'store');
-                    Route::post('/keluarga/{id}/edit', 'update')->where('id', '[0-9+]');
-                    Route::delete('/keluarga/{id}/delete', 'delete')->where('id', '[0-9]+');
-                });
-
-            });
-        // });
-=======
         Route::prefix('/dashboard')->middleware('auth')->group(function () {
-            /* Dashboard */
+            /* Dashboard Kader*/
             Route::get('/', [DashboardController::class, 'index']);
             Route::middleware(['role:kader'])->group(function (){
            
                 });
+            });
+        /* Data Anak */
+        Route::controller(DataAnakController::class)->group(function () {
+            Route::get('/dashboard_kader/data_anak', [DataAnakController::class, 'index']);
+            Route::post('/data_anak/tambah', [DataAnakController::class, 'store']);
+            Route::post('/data_anak/edit/{id}', [DataAnakController::class, 'update'])->where('id', '[0-9+]');
+            Route::delete('/data_anak/delete/{id}', [DataAnakController::class, 'delete'])->where('id', '[0-9]+');
+        });
+        
             });
 
         Route::prefix('/dashboard')->middleware('auth')->group(function () {
@@ -77,6 +67,9 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
                 });
 
             });
+            
+        /* Log */
+        Route::controller(LogController::class)->group(function () {
+            Route::get('/log', 'index');
         });
     });
->>>>>>> ba0914484b8bc33a56eeb0ba8664e26d9707c7f9

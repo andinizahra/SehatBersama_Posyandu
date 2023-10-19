@@ -1,6 +1,7 @@
 @extends('layouts.layout')
-@section('content')
+@section('title', 'Dashboard Kader')
 
+@section('content')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +24,16 @@
             </div>
         </nav>
         <div class="sidebar">
-            <li><img src="homeIcon.svg"><a href="#dashboard_kader">Dashboard</a></li>
-            <li><img src="profil.svg"><a href="#">Profil</a></li>
-            <li><img src="data.svg"><a href="#">Data Anak</a></li>
-            <li><img src="data.svg"><a href="#">Data Ibu Hamil</a></li>
-            <li><img src="pemeriksaan.svg"><a href="#">Pemeriksaan</a></li>
-            <li><img src="dokumentasi.svg"><a href="#">Dokumentasi</a></li>
+            <ul>
+                <li><img src="{{ asset('homeIcon.svg') }}"><a href="{{ url('/dashboard_kader') }}">Dashboard</a></li>
+                <li><img src="{{ asset('profil.svg') }}"><a href="#">Profil</a></li>
+                <li><img src="{{ asset('data.svg') }}"><a href="{{ url('/dashboard_kader/data_anak') }}">Data Anak</a></li>
+                <li><img src="{{ asset('data.svg') }}"><a href="#">Data Ibu Hamil</a></li>
+                <li><img src="{{ asset('pemeriksaan.svg') }}"><a href="#">Pemeriksaan</a></li>
+                <li><img src="{{ asset('activity.svg') }}"><a href="#">Log</a></li>
+            </ul>
         </div>
+        
         <div class="dashboard">
             <h2>Dashboard <div class="garis-vertikal"></div> Sehat Bersama Posyandu</h2>
         </div>
@@ -55,9 +59,9 @@
                 </div>
                 <div class="col-3">
                     <div class="card-blue">
-                       <img src="dokumentasi.svg"> <h2>Dokumentasi</h2>
+                       <img src="activity.svg"><a href="{{url('dashboard_kader', ['log'])}}" class="nav-item nav-link">Log</a>
                     </div>
-                </div>
+                </div>              
                 </div>
             </div>
                 </div>
