@@ -30,14 +30,6 @@
       </select>
     </div>
   </div>
-  <!-- <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        data sudah benar
-      </label>
-    </div>
-  </div> -->
   <button type="submit" class="btn btn-primary" form="data-anak">Submit</button>
 
 <script type="module">
@@ -48,7 +40,7 @@
             e.preventDefault();
             let data = new FormData(e.target);
             console.log(Object.fromEntries(data))
-            axios.post('/dashboard_keluarga/pemeriksaan_anak', data, {
+            axios.post('/dashboard/pemeriksaan_anak', data, {
                 'Content-Type': 'multipart/form-data'
             })
                 .then((res) => {

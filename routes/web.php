@@ -63,7 +63,7 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
     });
 
     /* keluarga */
-    Route::prefix('/dashboard')->middleware('auth')->group(function () {
+    Route::prefix('/dashboard_keluarga')->middleware('auth')->group(function () {
         /* Dashboard */
         Route::get('/', [DashboardController::class, 'index']);
         Route::middleware(['role:keluarga'])->group(function () { });
