@@ -1,6 +1,6 @@
 @extends('layouts.layout')
-@section('title', 'Manajemen User')
 @section('content')
+
     <div class="row">
         <div class="col d-flex justify-content-between mb-2">
             <a class="btn btn-gradient" style="color: white" href="{{url('/dashboard_admin')}}">
