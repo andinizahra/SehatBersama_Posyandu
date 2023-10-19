@@ -65,7 +65,7 @@
 
       </div>
       <div class="col-sm-6 px-0">
-        <img src="modal_1.png" style="width: 630px; height:555px;">
+        <img src="asset_2.png" style="width: 630px; height:565px;">
       </div>
     </div>
   </div>
