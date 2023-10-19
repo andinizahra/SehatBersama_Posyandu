@@ -36,5 +36,9 @@ class User extends Authenticatable
         'role'
     ];
 
+    function is($role) {
+        return ($this->role == $role);
+    }
+
     
 }

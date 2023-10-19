@@ -31,11 +31,12 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
     /* Dashboard */
     Route::get('/', [DashboardController::class, 'index']);
     Route::middleware(['role:admin'])->group(function (){
-        Route::get('/dashboard_admin/user', 'UserController@index')->name('user.index');
+      
 
         /* User */
-         Route::controller(UserController::class)->group(function () {
-            Route::get('/user', [DashboardController::class, 'index']);
+        // Route::get('/dashboard/user', 'UserController@index')->middleware();
+         Route::controller(UserController::class, 'index')->group(function () {
+            Route::get('/dashboard/user', 'index');
             Route::post('/user/tambah', 'store');
             Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
             Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
