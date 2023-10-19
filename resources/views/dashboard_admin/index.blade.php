@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+
 @section('content')
 
 
@@ -54,11 +55,12 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <a href="{{url('dashboard/user')}}" class="text-decoration-none">
+                    <a href="{{url('dashboard/dashboard/user')}}" class="text-decoration-none">
                     <div class="card-blue">
                        <img src="user.svg"> 
                         <h2>Kelola User</h2>
                     </div>
+                </a>
                 </div>
             </div>
                 </div>

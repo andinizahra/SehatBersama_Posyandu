@@ -1,4 +1,4 @@
-@section('content')
+<!-- @extends('../layouts.layout2') -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +20,13 @@
     </div>
   </div>
     <div class="form-group col-md-4">
-    @foreach($pemeriksaan_anak as $pa)
+    <!-- @foreach($pemeriksaan_anak as $pa) -->
       <label for="inputState">Jenis Kelamin</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
         <option>Laki - Laki</option>
         <option>Perempuan</option>
-        @endforeach
+        <!-- @endforeach -->
       </select>
     </div>
   </div>
@@ -39,7 +39,6 @@
     </div>
   </div> -->
   <button type="submit" class="btn btn-primary" form="data-anak">Submit</button>
-@endsection
 
 <script type="module">
         $('.table').DataTable();
@@ -65,5 +64,6 @@
         })
 </script>
 </form>
+
 </body>
 </html>

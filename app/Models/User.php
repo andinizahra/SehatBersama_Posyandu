@@ -23,7 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'password',
-        'role'
+        'role',
     ];
 
     /**
@@ -36,4 +36,9 @@ class User extends Authenticatable
         'role'
     ];
 
+    function is($role) {
+        return ($this->role == $role);
+    }
+
+    
 }
