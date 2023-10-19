@@ -19,8 +19,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => fake()->userName(),
-            'password' => Hash::make('12345'), 
+            'username' => 'ukom',
+            'password' => Hash::make('ukom'), 
             'role' => fake()->randomElement(['Admin', 'Kader', 'Keluarga'])
         ];
     }

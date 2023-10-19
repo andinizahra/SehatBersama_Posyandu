@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+
 @section('content')
 
 
@@ -59,6 +60,7 @@
                        <img src="user.svg"> 
                         <h2>Kelola User</h2>
                     </div>
+                </a>
                 </div>
             </div>
                 </div>
