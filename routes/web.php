@@ -43,8 +43,6 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
 
 
 
-
-
         /* User */
         Route::controller(UserController::class)->group(function () {
             Route::get('/user', [DashboardController::class, 'index']);
