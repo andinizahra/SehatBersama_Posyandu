@@ -1,4 +1,5 @@
 @extends('layouts.layout2')
+@section('content')
 
 <!DOCTYPE html>
 <html>
@@ -39,3 +40,4 @@
 </div>
 </body>
 </html>
+@endsection

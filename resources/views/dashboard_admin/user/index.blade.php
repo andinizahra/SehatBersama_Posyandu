@@ -1,138 +1,67 @@
 @extends('layouts.layout')
 @section('title', 'User')
-
 @section('content')
-    <div class="row">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=josefin-sans:500">
+    <title>Dashboard</title>
+</head>
+<body>
         <div class="col d-flex justify-content-between mb-2">
-            <a class="btn btn-gradient" style="color: white" href="{{url('/dashboard_admin')}}">
-                Kembali</a>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                    data-bs-target="#tambah-user-modal"> Tambah
-            </button>
-            <!-- Tambah User Modal -->
-            <div class="modal fade" id="tambah-user-modal" tabindex="-1"
-                 aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah User</h1>
-                        </div>
-                        <div class="modal-body">
-                            <form id="tambah-user-form">
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input placeholder="Username" type="text" class="form-control mb-3" name="username"
-                                           required/>
-                                    <label>Password</label>
-                                    <input placeholder="Password" type="text" name="password" class="form-control mb-3"
-                                           required autocomplete="off">
-                                    <label>Role</label>
-                                    <select name="role" class="form-select mb-3" required>
-                                        <option selected value="keluarga">Keluarga</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="kader">Kader</option>
-                                    </select>
-                                    @csrf
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" style="color: white" data-bs-dismiss="modal">
-                                Cancel
-                            </button>
-                            <button type="submit" class="btn btn-gradient" form="tambah-user-form">Tambah</button>
-                        </div>
+            <div class="btn-1">
+                <a class="btn btn-gradient" style="color: white" href="{{url('/dashboard')}}">
+                    Kembali</a>
+                <button type="button" class="btn btn-gradient" data-bs-toggle="modal"
+                        data-bs-target="#tambah-user-modal"> Tambah
+                </button>
+            </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover DataTable">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $no = 1;
+                                ?>
+                                @foreach($user as $u)
+                                <tr idUser="{{$u->id}}">
+                                    <td>{{$no++}}</td>
+                                    <td style="padding: 10px;">{{$u->username}}</td>
+                                    <td class="text-capitalize">{{$u->role}}</td>
+                                    <td>
+                                        <button type="button" class="editBtn btn btn-gradient" style="color: white" data-bs-toggle="modal"
+                                            data-bs-target="#edit-modal-{{$u->id}}" idUser="{{$u->id}}">
+                                            Edit
+                                        </button>
+                                        <button class="hapusBtn btn btn-danger">Hapus</button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row justify-content-center ">
-        <div class="col-md">
-            <div class="card">
-                <div class="card-body">
-                    <table class="table table-bordered table-hovered DataTable">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Username</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $no = 1;
-                            ?>
-                       @foreach($user as $u)
-                       <tr idUser="{{$u->id}}">
-                           <td class="col-1">{{$no++}}</td>
-                           <td>{{$u->username}}</td>
-                           <td class="text-capitalize">{{$u->role}}</td>
-                           <td class="col-2">
-                               <!-- Button trigger edit modal -->
-                               <button type="button" class="editBtn btn btn-gradient" style="color: white" data-bs-toggle="modal"
-                                       data-bs-target="#edit-modal-{{$u->id}}" idUser="{{$u->id}}">
-                                   Edit
-                               </button>
-                               <button class="hapusBtn btn btn-danger">Hapus</button>
-                           </td>
-                       </tr>
-                       <!-- Edit User Modal -->
-                       <div class="modal fade" id="edit-modal-{{$u->id}}" tabindex="-1"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                           <div class="modal-dialog modal-dialog-centered">
-                               <div class="modal-content">
-                                   <div class="modal-header">
-                                       <h1 class="modal-title fs-5" id="exampleModalLabel">Edit User</h1>
-                                   </div>
-                                   <div class="modal-body">
-                                       <form id="edit-user-form-{{$u->id}}">
-                                           <div class="form-group">
-                                               <label>Username</label>
-                                               <input placeholder="Username" type="text" class="form-control mb-3"
-                                                      name="username"
-                                                      value="{{$u->username}}"
-                                                      required/>
-                                               <label>Role</label>
-                                               <select name="role" class="form-select mb-3" required>
-                                                   <option @if($u->role == 'kader') selected
-                                                           @endif value="Kader">Kader
-                                                   </option>
-                                                   <option @if($u->role == 'admin') selected @endif value="admin">
-                                                       Admin
-                                                   </option>
-                                                   <option @if($u->role == 'keluarga') selected @endif value="keluarga">
-                                                       Keluarga
-                                                   </option>
-                                               </select>
-                                               @csrf
-                                           </div>
-                                       </form>
-                                   </div>
-                                   <div class="modal-footer">
-                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                           Cancel
-                                       </button>
-                                       <button type="submit" style="color: white" class="btn btn-gradient edit-btn"
-                                               form="edit-user-form-{{$u->id}}">
-                                           Edit
-                                       </button>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   @endforeach
-                   
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+</body>
+</html>
 
-        </div>
-    </div>
 @endsection
 @section('footer')
 @section('footer')
