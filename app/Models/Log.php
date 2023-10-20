@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pemeriksaan_anak extends Model
+class Log extends Model
 {
     use HasFactory;
-
-    protected $table = 'pemeriksaan_anak';
+    
+    protected $table = 'logs';
     protected $primaryKey = 'id';
-    protected $keyType = 'int';
-    protected $fillable = ['pemeriksaan_anak'];
+    protected $guarded = ['id'];
 
     public $timestamps = false;
 }

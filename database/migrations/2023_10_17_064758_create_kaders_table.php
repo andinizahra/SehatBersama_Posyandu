@@ -17,7 +17,6 @@ return new class extends Migration
             $table->unsignedBigInteger('nomor_anggota_kader')->nullable(false);
             $table->string('nama_kader', 100)->nullable(false);
             $table->date('tanggal_lahir')->nullable(false);
-            $table->string('tempat_lahir', 100)->nullable(false);
             $table->enum('jenis_kelamin', array('laki-laki','perempuan'))->nullable()->change();
             $table->text('alamat_bekerja')->nullable(false);
             $table->string('nomor_telepon', 15);

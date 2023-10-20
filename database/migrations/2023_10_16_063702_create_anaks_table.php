@@ -12,17 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('anak', function (Blueprint $table) {
-            $table->char('nik_anak')->primary();
-            $table->integer('no_kk')->nullable(false);
-            $table->string('nama_anak', 100)->nullable(false);
-            $table->string('nama_orang_tua', 100)->nullable(false);
-            $table->enum('jenis_kelamin', array('laki-laki','perempuan'))->nullable()->change();
-            $table->string('foto_identitas', 50)->nullable(); // Jika foto identitas opsional, gunakan nullable
-            $table->string('nomor_telepon_orang_tua', 15); // Tidak perlu nullable jika nomor telepon wajib
-            $table->date('tanggal_lahir');
-            $table->string('tempat_lahir', 100)->nullable(false);
-            $table->timestamps();
-        });;
+        $table->char('nik_anak')->primary();
+        $table->integer('no_kk')->nullable(false);
+        $table->string('nama_anak', 100)->nullable(false);
+        $table->date('tanggal_lahir'); 
+        $table->string('nama_orang_tua', 100)->nullable(false);
+        $table->enum('jenis_kelamin', array('laki-laki','perempuan'))->nullable();
+        $table->string('foto_identitas', 50)->nullable(); 
+        $table->string('nomor_telepon_orang_tua', 15); 
+
+        });
     }
 
     /**

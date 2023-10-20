@@ -54,6 +54,9 @@
           "dont-discover": [
             "barryvdh/laravel-ide-helper"
           ]
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
         }
       },
     "config": {
