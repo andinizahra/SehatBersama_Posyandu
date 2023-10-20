@@ -28,6 +28,8 @@ class DashboardController extends Controller
             return view('dashboard_keluarga.index');
         }
 
+        return null;
+
     }
 
     

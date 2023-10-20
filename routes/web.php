@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\DataAnakController;
 use App\Http\Controllers\DataIbuHamilController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\RiwayatKesehatan;
 use App\Http\Controllers\UserController;
 use Database\Factories\PemeriksaanAnakFactory;
@@ -61,6 +62,18 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
                 
                 });
             });
+            
+            Route::get('/data_ibu_hamil', [DataIbuHamilController::class, 'index']);
+                Route::get('/data_ibu_hamil/add', [DataIbuHamilController::class, 'add']);
+                Route::post('data_ibu_hamil/addsubmit', [DataIbuHamilController::class, 'addsubmit']);
+                Route::get('data_ibu_hamil/hapus/{data_ibu_hamil}', [DataIbuHamilController::class, 'destroy']);
+       
+            });
+    
+
+                        Route::controller(LogController::class)->group(function () {
+                            Route::get('/log', 'index');
+            });
 
             Route::prefix('/dashboard')->middleware('auth')->group(function () {
                 /* Dashboard */
@@ -77,4 +90,6 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             Route::delete('/riwayat/{id}/delete', 'delete')->where('id', '[0-9]+');
             });
         });
+
+        
         

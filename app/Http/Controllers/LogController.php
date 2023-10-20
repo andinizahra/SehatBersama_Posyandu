@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,6 +14,6 @@ class LogController extends Controller
             'logs' => Log::query()->orderBy('created_at', 'DESC')->get()
         ];
 
-        return view('dashboard.log.index', $data);
+        return view('log.index', $data);
     }
 }
