@@ -37,10 +37,18 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->group(function () {
         Route::get('/dashboard_admin/user', 'UserController@index')->name('user.index');
 
+
+
+
+
+
+
+
+
         /* User */
         Route::controller(UserController::class)->group(function () {
             Route::get('/user', [DashboardController::class, 'index']);
-
+        
     Route::middleware(['role:admin'])->group(function (){
     });
         });
@@ -54,6 +62,20 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
             });
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
         Route::prefix('/dashboard')->middleware('auth')->group(function () {
             /* Dashboard */
