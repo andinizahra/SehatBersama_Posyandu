@@ -1,65 +1,130 @@
-@extends('layout.layout')
-@section('title', 'Data Ibu Hamil')
+@extends('layouts.layout')
+@section('title', 'Catatan Vaksin')
 @section('content')
-<div class="row">
-    <h1 class="DataIbu">Data Ibu Hamil</h1>
-    <div class="card">
-        <div class="carddata">
-            <div class="row">
-                <div class="col">
-                    <div class="input-group col-md-4" style="max-width: 300px; border-right: none;">
-                        <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
-                        <span class="input-group-append">
-                            <div style="border-left: none;" class="input-group-text py-2 border-left-0 bg-transparent"><i class="bi-search"></i></div>
-                        </span>
+
+        <div class="col d-flex justify-content-between mb-2">
+            <div class="btn-1">
+                <a class="btn-a" style="color: white" href="{{url('/dashboard')}}">
+                    Kembali</a>
+                <button type="button" class="btn-u" style="margin-right: 100px;"  data-bs-toggle="modal"
+                        data-bs-target="#tambah-user-modal"> Tambah
+                </button>
+            </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover DataTable">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama</th>
+                                    <th>TT(TETANUS TOKSOID) 1</th>
+                                    <th>TT(TETANUS TOKSOID) 2</th>
+                                    <th>Vaksin Flu</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $no = 1;
+                                ?>
+                                @foreach($vaksin as $v)
+                                <tr idVaksin="{{$v->id}}">
+                                    <td>{{$no++}}</td>
+                                    <td style="padding: 10px;">{{$v->Nama}}</td>
+                                    <td class="text-capitalize">{{$v->vaksin}}</td>
+                                    <td>
+                                        <button type="button" class="editBtn btn btn-gradient" style="color: white" data-bs-toggle="modal"
+                                            data-bs-target="#edit-modal-{{$v->id}}" idVaksin="{{$v->id}}">
+                                            Edit
+                                        </button>
+                                        <button class="hapusBtn btn btn-danger">Hapus</button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="col float-end text-end ml-5">
-                    <a href="/dashboard_kader/data_ibu_hamil" class="btn btn-success">Tambah</a>
-                </div>
-            </div>
-            <div class="card-body">
-                <table class="table table-bordered ibu">
-                    <thead>
-                        <tr>
-                            <th scope="col">NIK</th>
-                            <th scope="col">Nama Ibu Hamil</th>
-                            <th scope="col">tanggal Lahir</th>
-                            <th scope="col">Nomor Telepon</th>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $x = 1;  ?>
-                        @foreach ($data_ibu_hamil as $h)
-                        <tr>
-                            <th scope="row">{{ $b++ }}</th>
-                            <td>{{ $h->nik_ibu_hamil}}</td>
-                            <td>{{ $h->nama_ibu_hamil }}</td>
-                            <td>{{ $h->tanggal_lahir }}</td>
-                            <td>
-                                @if($h)
-                                <img src="data:{{ $h->jpg}};base64,{{ base64_encode($h->foto) }}>" alt="">
-                                @else
-                                <p>Image not found</p>
-                                @endif
-                                {{ $h->foto }} 
-                            </td>
-                            <td>
-                               
-                                <a href="{{ url('/dashboard_kader/data_ibu_hamil',['detail', $h->kode]) }}"><i class="bi-eye"></i></a>
-                                
-                                <a href="{{ url('/dashboard_kader/data_ibu_hamil',['hapus', $h->kode]) }}" onclick="confirm('Apa anda yakin ingin menghapus data ini?')"><i class="bi-trash"></i></a>
-                               
-                                <a href=""><i class="bi-pencil-square"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
-</div>
+
+
+@endsection
+@section('footer')
+@section('footer')
+<script type="module">
+    $('.table').DataTable();
+    /*-------------------------- TAMBAH USER -------------------------- */
+    $('#tambah-user-form').on('submit', function (e) {
+        e.preventDefault();
+        let data = new FormData(e.target);
+        axios.post('/dashboard_admin/user/tambah', Object.fromEntries(data))
+            .then(() => {
+                $('#tambah-user-modal').css('display', 'none')
+                swal.fire('Berhasil tambah data!', '', 'success').then(function () {
+                    location.reload();
+                })
+            })
+            .catch(() => {
+                swal.fire('Gagal tambah data!', '', 'warning');
+            });
+    })
+
+    /*-------------------------- EDIT USER -------------------------- */
+    $('.editBtn').on('click', function (e) {
+        e.preventDefault();
+        let idUser = $(this).attr('idUser');
+        $(`#edit-user-form-${idUser}`).on('submit', function (e) {
+            e.preventDefault();
+            let data = new FormData(e.target);
+            axios.post(`/dashboard_admin/user/${idUser}/edit`, Object.fromEntries(data))
+                .then(() => {
+                    $(`#edit-modal-${idUser}`).css('display', 'none')
+                    swal.fire('Berhasil edit data!', '', 'success').then(function () {
+                        location.reload();
+                    })
+                })
+                .catch(() => {
+                    swal.fire('Gagal tambah data!', '', 'warning');
+                })
+        })
+    })
+
+    /*------- HAPUS USER ------- */
+    $('.table').on('click', '.hapusBtn', function () {
+        let idUser = $(this).closest('tr').attr('idUser');
+        swal.fire({
+            title: "Apakah anda ingin menghapus data ini?",
+            showCancelButton: true,
+            confirmButtonText: 'Setuju',
+            cancelButtonText: `Batal`,
+            confirmButtonColor: 'red'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`/dashboard_admin/user/${idUser}/delete`).then(function (response) {
+                    console.log(response);
+                    if (response.data.success) {
+                        swal.fire('Berhasil di hapus!', '', 'success').then(function () {
+                            //Refresh Halaman
+                            location.reload();
+                        });
+                    } else {
+                        swal.fire('Gagal di hapus!', '', 'warning').then(function () {
+                            //Refresh Halaman
+                            location.reload();
+                        });
+                    }
+                }).catch(function (error) {
+                    swal.fire('Data gagal di hapus!', '', 'error').then(function () {
+                        //Refresh Halaman
+                        location.reload();
+                    });
+                });
+            }
+        });
+    })
+</script>
 @endsection

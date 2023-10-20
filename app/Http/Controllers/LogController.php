@@ -14,6 +14,6 @@ class LogController extends Controller
             'logs' => Log::query()->orderBy('created_at', 'DESC')->get()
         ];
 
-        return view('log.index', $data);
+        return view('dashboard_admin.log.index', $data);
     }
 }

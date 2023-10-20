@@ -63,16 +63,16 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
                 });
             });
             
-            Route::get('/data_ibu_hamil', [DataIbuHamilController::class, 'index']);
+            /* Route::get('/data_ibu_hamil', [DataIbuHamilController::class, 'index']);
                 Route::get('/data_ibu_hamil/add', [DataIbuHamilController::class, 'add']);
                 Route::post('data_ibu_hamil/addsubmit', [DataIbuHamilController::class, 'addsubmit']);
                 Route::get('data_ibu_hamil/hapus/{data_ibu_hamil}', [DataIbuHamilController::class, 'destroy']);
        
-            });
+            }); */
     
 
                         Route::controller(LogController::class)->group(function () {
-                            Route::get('/log', 'index');
+                            Route::get('/dashboard/log', 'index');
             });
 
             Route::prefix('/dashboard')->middleware('auth')->group(function () {
@@ -89,7 +89,7 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             Route::post('/riwayat/{id}/edit', 'update')->where('id', '[0-9+]');
             Route::delete('/riwayat/{id}/delete', 'delete')->where('id', '[0-9]+');
             });
-        });
+        });      
 
         
         

@@ -8,16 +8,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=josefin-sans:500">
     <title>Dashboard</title>
 </head>
 <body>
         <div class="col d-flex justify-content-between mb-2">
             <div class="btn-1">
-                <a class="btn btn-gradient" style="color: white" href="{{url('/dashboard')}}">
+                <a class="btn-a" style="color: white" href="{{url('/dashboard')}}">
                     Kembali</a>
-                <button type="button" class="btn btn-gradient" data-bs-toggle="modal"
+                <button type="button" class="btn-u" style="margin-right: 100px;"  data-bs-toggle="modal"
                         data-bs-target="#tambah-user-modal"> Tambah
                 </button>
             </div>

@@ -14,6 +14,7 @@
     height: 30px;
     margin-top: -10px;
     margin-right: -15px;
+    margin-left: -30px;
 }
 
 .nav-left {
@@ -36,13 +37,14 @@
     width: 200px;
     height: 600px;
     margin-left: -8px;
+    margin-top: -110px;
     text-decoration: none;
     float: left; 
 }
 
 .sidebar li {
     padding-top: 30px;
-    padding-left: 5px;
+    padding-left: 20px;
     list-style: none; 
     color: white; 
     display: flex; /* Menggunakan flexbox untuk mengatur layout */
@@ -84,25 +86,25 @@ h2 {
     border-radius: 10px;
 }
 
-.row {
+.re {
     display: grid; /* Menggunakan grid layout */
     grid-template-columns: repeat(4, 1fr); /* Membagi menjadi 4 kolom yang sama lebar */
     gap: 20px; /* Jarak antara elemen-elemen */
 }
 
-.card-blue {
+.cardPosyandu{
     margin-top: 20px;
     margin-left: 30px;
     background-color: #ADD0D8;
     color: #030A48;
     padding: 20px;
     text-align: center;
-    width: 140px;
+    width: 130px;
     height: 100px;
     border-radius: 30px;
 }
 
-.card-blue h2 {
+.cardPosyandu h2 {
     margin: 0; /* Menghapus margin bawaan dari elemen <h2> */
     padding-top: 7px;
     font-size: 15px;
@@ -128,7 +130,7 @@ ul
     -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
     box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
@@ -146,15 +148,99 @@ ul
 }
 
 .btn-1 {
-    margin-left: 100px;
+    margin-right: 200px;
+    height: 60%;
 }
 
 .col-md-8 {
-    width: 850px;
-    margin-top: 40px;
-    margin-left: 40px;
+    width: 900x;
+    margin-top: 100px;
+    margin-left: 50x;
+    margin-bottom: 20px;
 }
 
+/* Gaya tombol utama */
+.btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-a {
+    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    margin-top: 80px;
+    margin-right: 350px;
+}
+
+/* Gaya tombol tambah */
+.btn-u {
+    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    margin-top: 80px;
+    margin-right: 500px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn.btn-gradient:hover {
+    background: linear-gradient(to right, #2F80ED, #56CCF2);
+}
+
+/* Gaya tombol hapus */
+.btn.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn.btn-danger:hover {
+    background-color: #b21227;
+}
+
+/* Gaya tabel */
+.table {
+    width: 80%;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+/* Gaya baris tabel saat dihover */
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Gaya tombol Edit */
+.editBtn {
+    background-color: #17a2b8;
+}
+
+.editBtn:hover {
+    background-color: #0f6674;
+}
+
+/* Gaya tombol Hapus */
+.hapusBtn {
+    background-color: #dc3545;
+}
+
+.hapusBtn:hover {
+    background-color: #b21227;
+}
+
+
+
+  
 
 
 

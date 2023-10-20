@@ -20,26 +20,35 @@
         <div class="hi">
             <h3>Halo Admin !</h3>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <div class="card-blue">
+        <div class="sidebar">
+            <li><img src="/homeIcon.svg"><a href="{{url('dashboard/')}}">Dashboard</a></li>
+            <li><img src="/profil.svg"><a href="#">Profil</a></li>
+            <li><img src="/vaksin.svg"><a href="{{url('dashboard/catatan_vaksin')}}">Catatan Vaksin</a></li>
+            <li><img src="/imunisasi.svg"><a href="#">Catatan Imunisasi</a></li>
+            <li><img src="/jadwal.svg"><a href="#">Jadwal Posyandu</a></li>
+            <li><img src="/user.svg"><a href="{{url('dashboard/dashboard/user')}}">Kelola User</a></li>
+        </div>
+        <div class="pe">
+            <div class="re">
+                <div class="pos">
+                    <div class="cardPosyandu">
                       <img src="vaksin.svg"><h2>Pencatatan Vaksin Ibu Hamil</h2>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="card-blue">
+                <div class="pos">
+                    <div class="cardPosyandu">
                       <img src="imunisasi.svg"><h2>Pencatatan Imunisasi Anak</h2>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="card-blue">
-                       <img src="jadwal.svg"> <h2>Pembuatan Jadwal Vaksin dan Posyandu</h2>
+                <div class="pos">
+                      <a href="{{url('dashboard/dashboard/log')}}">
+                    <div class="cardPosyandu">
+                       <img src="activity.svg"><h2>Log</h2>
                     </div>
                 </div>
-                <div class="col-3">
-                    <a href="{{url('dashboard/dashboard/user')}}" class="text-decoration-none">
-                    <div class="card-blue">
+                <div class="pos">
+                    <a href="{{url('dashboard/dashboard/user')}}">
+                    <div class="cardPosyandu">
                        <img src="user.svg"> 
                         <h2>Kelola User</h2>
                     </div>
