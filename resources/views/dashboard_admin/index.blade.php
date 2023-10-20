@@ -1,5 +1,5 @@
-@extends('layouts.layout')
-@section('content')
+{{-- @extends('layouts.layout')
+@section('content') --}}
 
 
 <!DOCTYPE html>
@@ -59,4 +59,4 @@
     </div>
 
 </html>
-@endsection
+{{-- @endsection --}}
