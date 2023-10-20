@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+{{-- @extends('layouts.layout')
 @section('title', 'Log Activity')
 @section('content')
     <div class="row">
@@ -47,4 +47,4 @@
     <script type="module">
         $('.table').DataTable();
     </script>
-@endsection
+@endsection --}}

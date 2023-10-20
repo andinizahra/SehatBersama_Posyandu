@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-
 @section('content')
 
 
@@ -41,7 +40,6 @@
                     </div>
                 </div>
                 <div class="pos">
-                      <a href="{{url('dashboard/dashboard/log')}}">
                     <div class="cardPosyandu">
                        <img src="activity.svg"><h2>Log</h2>
                     </div>

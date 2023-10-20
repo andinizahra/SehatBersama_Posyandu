@@ -71,9 +71,9 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
             }); */
     
 
-                        Route::controller(LogController::class)->group(function () {
-                            Route::get('/dashboard/log', 'index');
-            });
+            //             Route::controller(LogController::class)->group(function () {
+            //                 Route::get('/dashboard/log', 'index');
+            // });
 
             Route::prefix('/dashboard')->middleware('auth')->group(function () {
                 /* Dashboard */
