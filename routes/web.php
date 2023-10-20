@@ -5,7 +5,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\DataAnakController;
 use App\Http\Controllers\DataIbuHamilController;
+use App\Http\Controllers\RiwayatKesehatan;
 use App\Http\Controllers\UserController;
+use Database\Factories\PemeriksaanAnakFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('', function() {
+
+Route::get('', function () {
     return redirect('/login');
 });
 
@@ -29,47 +32,49 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::prefix('/dashboard')->middleware('auth')->group(function () {
     /* Dashboard */
     Route::get('/', [DashboardController::class, 'index']);
-    Route::middleware(['role:admin'])->group(function (){
-      
 
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/dashboard_admin/user', 'UserController@index')->name('user.index');
+
+        /* User */
+        Route::controller(UserController::class)->group(function () {
+            Route::get('/user', [DashboardController::class, 'index']);
+
+    Route::middleware(['role:admin'])->group(function (){
+    });
+        });
         /* User */
         // Route::get('/dashboard/user', 'UserController@index')->middleware();
          Route::controller(UserController::class, 'index')->group(function () {
             Route::get('/dashboard/user', 'index');
+
             Route::post('/user/tambah', 'store');
             Route::post('/user/{id}/edit', 'update')->where('id', '[0-9+]');
             Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
             });
         });
-
-        Route::get('/', [DashboardController::class, 'index']);
-         Route::middleware(['role:kader'])->group(function (){
-
-        Route::controller(DataAnakController::class, 'index')->group(function () {
-            Route::get('/dashboard_kader/data_anak', 'index');
-            Route::post('/dashboard_kader/data_anak/tambah', 'store');
-            Route::post('/dashboard_kader/data_anak/{id}/edit', 'update')->where('id', '[0-9+]');
-            Route::delete('/user/{id}/delete', 'delete')->where('id', '[0-9]+');
-            });
-        });
-        Route::controller(DataIbuHamilController::class, 'index')->group(function () {
-            Route::get('/dashboard/data_ibu_hamil', [DataIbuHamilController::class, 'index']);
-            Route::get('/dashboard/data_ibu_hamil/add', [DataIbuHamilController::class, 'addIbu']);
-            Route::post('dashboard/data_ibu_hamil/addSubmit', [DataIbuHamilController::class, 'addsubmit']);
-            Route::get('data_ibu_hamil/hapus/{data_ibu_hamil}', [DataIbuHamilController::class,'destroy']);
-        });
-  
-
-//         Route::prefix('/dashboard_keluarga')->middleware('keluarga')->group(function () {
-//             Route::get('/', [DashboardController::class, 'index']);
-//             Route::middleware(['role:keluarga'])->group(function () {
-                /* Keluarga */
-                Route::controller(KeluargaController::class)->group(function () {
-                    Route::get('keluarga', 'index');
-                    Route::post('/keluarga/tambah', 'store');
-                    Route::post('/keluarga/{id}/edit', 'update')->where('id', '[0-9+]');
-                    Route::delete('/keluarga/{id}/delete', 'delete')->where('id', '[0-9]+');
+        
+        Route::prefix('/dashboard')->middleware('auth')->group(function () {
+            /* Dashboard */
+            Route::get('/', [DashboardController::class, 'index']);
+            Route::middleware(['role:kader'])->group(function (){
+                
                 });
-
-        // });
             });
+
+            Route::prefix('/dashboard')->middleware('auth')->group(function () {
+                /* Dashboard */
+                Route::get('/', [DashboardController::class, 'index']);
+                Route::middleware(['role:keluarga'])->group(function (){
+               
+                    });
+                });
+        //Riwayat Kesehatan
+        Route::controller(RiwayatKesehatanController::class)->group(function () {
+            Route::get('/riwayat', 'index');
+            Route::post('/riwayat/tambah', 'store');
+            Route::post('/riwayat/{id}/edit', 'update')->where('id', '[0-9+]');
+            Route::delete('/riwayat/{id}/delete', 'delete')->where('id', '[0-9]+');
+            });
+        });
+        
